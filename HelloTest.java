@@ -1,8 +1,10 @@
-import test.java.PkgHello;
+import test.java.PkgTest;
 
 public class HelloTest {
     public static void main(String[] args) {
         System.out.println("hello world by yzy");
-        System.out.println(PkgHello.pkgName());
+        String[] str = {"hello", "yzy"};
+
+        PkgTest.main(str);
     }
 }
