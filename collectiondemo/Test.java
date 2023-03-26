@@ -12,6 +12,5 @@ public class Test {
         list.add("yzy");
         System.out.println(list);
         System.out.println(list.size());
-
     }
 }
