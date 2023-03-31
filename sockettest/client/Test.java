@@ -17,6 +17,9 @@ public class Test {
         System.out.println(SocketConnPool.getChannelPoolSize());
         new Thread(new ThreadRun()).start();
         System.out.println(SocketConnPool.getChannelPoolSize());
+        new Thread(new ThreadRun()).start();
         Thread.sleep(60000);
+        new Thread(new ThreadRun()).start();
+        System.out.println(SocketConnPool.getChannelPoolSize());
     }
 }

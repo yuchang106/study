@@ -8,19 +8,18 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
-import java.util.Scanner;
 import java.util.Set;
 
 public class Server {
 
-    private String address;
-    private int port;
-    private Selector selector;
+    private final String address;
+    private final int port;
+    private final Selector selector;
 
-    private ByteBuffer readBuffer = ByteBuffer.allocate(1024);
-    private ByteBuffer writeBuffer = ByteBuffer.allocate(1024);
+    private final ByteBuffer readBuffer = ByteBuffer.allocate(1024);
+    private final ByteBuffer writeBuffer = ByteBuffer.allocate(1024);
 
-    private Scanner scanner = new Scanner(System.in);
+    //private Scanner scanner = new Scanner(System.in);
 
     public Server(String address, int port) throws IOException {
         this.address = address;
@@ -44,6 +43,17 @@ public class Server {
 
         // 监听连接
         acceptClient();
+    }
+
+    public static void main(String[] args) {
+        String address = "localhost";
+        int port = 8080;
+
+        try {
+            new Server(address, port).startServer();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void acceptClient() {
@@ -76,7 +86,7 @@ public class Server {
                             continue;
                         }
 
-                        System.out.println(sb.toString());
+                        System.out.println(sb);
                         clientChannel.register(selector, SelectionKey.OP_WRITE);
 
                         String msg = "hello";
@@ -93,17 +103,6 @@ public class Server {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    public static void main(String[] args) {
-        String address = "localhost";
-        int port = 8080;
-
-        try {
-            new Server(address, port).startServer();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
