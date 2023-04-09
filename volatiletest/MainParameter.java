@@ -1,8 +1,17 @@
 package volatiletest;
 
 public class MainParameter {
+    private volatile static int status;
     private static String name;
     private static int age;
+
+    public static int getStatus() {
+        return status;
+    }
+
+    public static void setStatus(int status) {
+        MainParameter.status = status;
+    }
 
     public static String getName() {
         return name;
