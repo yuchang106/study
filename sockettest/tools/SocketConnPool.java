@@ -2,6 +2,7 @@ package sockettest.tools;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.net.StandardSocketOptions;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
@@ -17,6 +18,7 @@ public class SocketConnPool {
                 socketChannel.configureBlocking(false);
                 Selector selector = Selector.open();
                 socketChannel.register(selector, SelectionKey.OP_CONNECT);
+                socketChannel.setOption(StandardSocketOptions.SO_KEEPALIVE,true);
                 socketChannel.connect(new InetSocketAddress(host, port));
 
                 return new ChannelNode(socketChannel, selector, host, port);

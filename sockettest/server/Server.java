@@ -47,7 +47,7 @@ public class Server {
 
     public static void main(String[] args) {
         String address = "localhost";
-        int port = 8080;
+        int port = 8000;
 
         try {
             new Server(address, port).startServer();
