@@ -1,31 +1,17 @@
 package volatiletest;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainParameter {
-    private volatile static int status;
-    private static String name;
-    private static int age;
-
-    public static int getStatus() {
-        return status;
+    public static int flag = 0;
+    public static Map<String, String> getMap() {
+        return map;
     }
 
-    public static void setStatus(int status) {
-        MainParameter.status = status;
+    public static void setMap(Map<String, String> map) {
+        MainParameter.map = map;
     }
 
-    public static String getName() {
-        return name;
-    }
-
-    public static void setName(String name) {
-        MainParameter.name = name;
-    }
-
-    public static int getAge() {
-        return age;
-    }
-
-    public static void setAge(int age) {
-        MainParameter.age = age;
-    }
+    private static Map<String, String> map = new HashMap<>();
 }

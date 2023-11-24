@@ -1,10 +1,18 @@
-import test.java.PkgTest;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HelloTest {
-    public static void main(String[] args) {
-        System.out.println("hello world by yzy");
-        String[] str = {"hello", "yzy"};
+    public static void main(String[] args) throws InterruptedException {
+        Map<String, String> map = new HashMap<>();
+        map.put("name", "yzy");
+        map.clear();
+        System.out.println(map.get("name"));
 
-        PkgTest.main(str);
+//        while(true) {
+//            Thread.sleep(1000);
+//            ResourceBundle.clearCache();
+//            ResourceBundle bundle = ResourceBundle.getBundle("seckit");
+//            System.out.println("["+bundle.getString("seckit.node.id")+"]");
+//        }
     }
 }
